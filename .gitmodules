@@ -1,0 +1,6 @@
+[submodule "payroll_services"]
+	path = payroll_services
+	url = https://github.com/KaGeN101/payroll_services.git
+[submodule "hr_portal"]
+	path = hr_portal
+	url = https://github.com/KaGeN101/hr_portal.git
