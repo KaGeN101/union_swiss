@@ -6,8 +6,8 @@ inevitibly it mostly get hog washed half baked between the two, as well as sprin
 
 In the approach that was done in this excercise it is neither, each domain only does what it was suppose to. 
 The Rails concept is great in its approach but the data layer should never have been part of the stack. Other than the fact that it is almost always the most 
-inifficiant part of the process it tends to bend the design towards its inefficiencies as well.
-I will give you an example, imagagine we would want to model a bicycle, in Ruby you might do something like this:
+inefficient part of the process it tends to bend the design towards its inefficiencies as well.
+I will give you an example, imagine we would want to model a bicycle, in Ruby you might do something like this:
 ```
 class Bicycle
 end
@@ -19,7 +19,7 @@ class Bicycle < ActiveRecord::Base
 end
 ```
 This bicycle has transformed into a full blown database controller, it can connect, manipulate and interact with just about every aspect of the datastore. The 
-fact that is was a representation of a bicycle is now a distant idea.
+fact that it was a representation of a bicycle is now a distant idea.
 
 This solution was done in a combination of Phoenix, Elixir and the Erlang OTP. Phoenix is a like for like Rails clone implemented in Elixir, if you know the 
 Rails conventions you know Phoenix. Elixir is a functional language abstraction that runs on the Erlang Run Time System. The Erlang OTP is a set of run time 
@@ -42,8 +42,8 @@ add an API for reading too, as there is always some algorithms that need to be a
 Abstracting the business logic out of the presentation layer means it can be re used in various other solutions as well by just exposing the API to a front end service.
 
 Both the presentation layer as well as the service run as seperate OTP Apllication Behaviors, as such they are 2 independent run times inside the Erlang system.
-To have even more independent exposure Phoenix Channels can easily be exposed to GenServer handles.
-The Phoenix application is dependent on the PayrollServices application and will start it up before it starts up. 
+To have even more independent exposure Phoenix Channels can easily be exposed to GenServer handles.  
+The Phoenix application is dependent on the PayrollServices application and will start it up before it starts up.   
 Both run as independet processes in the Erlang machine.
 
 
