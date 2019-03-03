@@ -7,4 +7,5 @@ mix local.hex
 mix archive.install hex phx_new 1.4.1
 mix phx
 mix local.phx
- sudo apt-get install postgresql -y
+sudo apt-get install npm -y
+sudo apt-get install postgresql -y
