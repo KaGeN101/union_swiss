@@ -16,7 +16,9 @@ as these scripts does
    sudo nano /etc/postgresql/10/main/pg_hba.conf 
    
    Change this peer to md5, should be the first one:
+   ```
    local   all             postgres                                peer
+   ```
    
    Restart PostgresSQL:  
    sudo service postgresql restart  
