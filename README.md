@@ -9,14 +9,14 @@ The Rails concept is great in its approach but the data layer should never have 
 inifficiant part of the process it tends to bend the design towards its inefficiencies as well.
 I will give you an example, image we would want to model a bicycle, in Ruby you might do somethin like this:
 
-class Bicycle
-end
+class Bicycle  
+end  
 
 You might assign some attributes to it like, handlebars, wheels, peddles and gears, as well as some functionality, and that would have been a perfect model.
 But now along comes the bundling of an ORM like ActiveRecord and with this small change:
 
-class Bicycle < ActiveRecord::Base
-end
+class Bicycle < ActiveRecord::Base  
+end  
 
 This bicycle has transformed into a full blown database controller, it can connect, manipulate and interact with just about every aspect of the datastore. The 
 fact that is was a representation of a bicycle is now a distant idea.
@@ -29,3 +29,28 @@ As I was doing this implementation I tried to think if there is any other techno
 I believe Erlang, Elixir and the OTP combination is the only one of its kind. 
 
 ### Design
+
+The solution consists of 3 components:
+ - HrPortal: Presentation Layer - Phoenix Application 
+ - PayrollServices: OTP Elixir Application - Business Logic and ORM
+ - Relation Database: SQL Datastore to keep state
+
+There is an architecture diagram in this repor named HrPortal.png. I spun the solution more than once, it use to be called HrHub before.
+
+Abstracting the business logic out of the presentation layer means it can be re used in various other solutions as well by just exposing the API to a front end service.
+
+Both the presentation layer as well as the service runs as seperate OTP Apllication Behaviors, as such they are 2 independent run times inside the Erlang system.
+To have even more independent exposure Phoenix Channels can easily be exposed to GenServer handles.
+
+
+### Assumptions
+
+I did not do anything with the Payment Start Date. I assumed payments runs on the SARS cycle of March to February. Since it is now March everyone's first period starts 
+now. Even if that interpretation is not 100% correct it shuold give me 12 months to sort out the issue, and anayone that starts during the year will not have the correct 
+payemnt cycle until adapted.
+
+Did not add any CSS, I believe makeup should be able to be aded at any time without effecting the implementation layers
+
+Did not do any JavaScript, wanted to do the Search featrure as maybe an AJAX call but since it returned a know view just piggy backed of that
+
+I left the other generated actions, views and templates in even thou they are not excercised from the presentation layer
