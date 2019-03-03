@@ -35,7 +35,9 @@ The solution consists of 3 components:
  - PayrollServices: OTP Elixir Application - Business Logic and ORM
  - Relation Database: SQL Datastore to keep state
 
-There is an architecture diagram in this repor named HrPortal.png. I spun the solution more than once, it use to be called HrHub before.
+There is an architecture diagram in this repor named HrPortal.png. I spun the solution more than once, it used to be called HrHub before.
+In the diagram I added a design aspect I am not tooo sure about, if you can allow clients direct read access, I suppose it depends on the solution. I would probably 
+add an API for reading too, as there is alway some algorithms that need to be applied to the data first.
 
 Abstracting the business logic out of the presentation layer means it can be re used in various other solutions as well by just exposing the API to a front end service.
 
