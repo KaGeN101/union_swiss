@@ -43,6 +43,8 @@ Abstracting the business logic out of the presentation layer means it can be re 
 
 Both the presentation layer as well as the service runs as seperate OTP Apllication Behaviors, as such they are 2 independent run times inside the Erlang system.
 To have even more independent exposure Phoenix Channels can easily be exposed to GenServer handles.
+The Phoenix application is dependent on the PayrollServices application and will start it up before it starts up. 
+Both run as independet processes in the Erlang machine.
 
 
 ### Assumptions
@@ -50,9 +52,21 @@ To have even more independent exposure Phoenix Channels can easily be exposed to
 I did not do anything with the Payment Start Date. I assumed payments runs on the SARS cycle of March to February. Since it is now March everyone's first period starts 
 now. Even if that interpretation is not 100% correct it shuold give me 12 months to sort out the issue, and anayone that starts during the year will not have the correct 
 payemnt cycle until adapted.
+It talks about employee number in the document, but there is no mention of it on the model, I presumed the id is the employee number
 
 Did not add any CSS, I believe makeup should be able to be aded at any time without effecting the implementation layers
 
 Did not do any JavaScript, wanted to do the Search featrure as maybe an AJAX call but since it returned a know view just piggy backed of that
 
 I left the other generated actions, views and templates in even thou they are not excercised from the presentation layer
+
+### Deliverables
+
+This was my first Phoenix project, because it is a like for like Rails clone, if you know Rials you Phoenix, I am sure as always there could be improivements.
+ - Single view webpage built in Phoenix - Done
+ - Employee list feature, with CRUD, deleting employee also deletes all their payslips - Done
+ - Search on Name(First or Last) or Id(Employee number?) - Done
+ - Employee Details page with list of Payslips - Done
+ - Add PaySlip, just adds the next payslip in the order - Done
+ - All calculations as per porvided formulas - Done
+ - There should be a test case for every fesature, coverage should be close to 100%

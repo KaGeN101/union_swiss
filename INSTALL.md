@@ -5,7 +5,7 @@ but am sure they should work in most Ubuntu versions. If running another version
 as these scripts does
 
 1. Run the install_me.sh script, this installs all the required tooling applications
-2. The PostgresSQL install in Peer mode by defualt. Needs too be in Login mode for a client to connect. 
+2. The PostgresSQL installs in Peer mode by defualt. Needs too be in Login mode for a client to connect. 
    Please edit this file: 
    sudo nano /etc/postgresql/10/main/pg_hba.conf 
    
